@@ -15,13 +15,12 @@ class Encrypted
 	puts encrypted_value 
 	puts decrypted_value
 	end
-
-
 	def open(url)
  	 Net::HTTP.get(URI.parse(url))
 	end
 	def getRandomNumber
-	# Get entirely random salt from a quantum random generator. 
+	# Get entirely random salt from a quantum random generator.
+	# See http://qrng.anu.edu.au/index.php
 	page_content = open('http://150.203.48.55/RawHex.php')
 	page_array = page_content.split(/[\s\:]/)
 	trIndex = page_array.find_index("<tr>") 
